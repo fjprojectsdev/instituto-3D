@@ -16,24 +16,24 @@ export const siteConfig = {
   // ESTATÍSTICAS
   stats: [
     {
-      number: 200,
+      number: 765,
       label: "Famílias Atendidas",
-      suffix: "+"
-    },
-    {
-      number: 24,
-      label: "Ações Realizadas",
-      suffix: "+"
-    },
-    {
-      number: 50,
-      label: "Voluntários Ativos",
-      suffix: "+"
-    },
-    {
-      number: 2,
-      label: "Anos de Atuação",
       suffix: ""
+    },
+    {
+      number: 20,
+      label: "Pessoas ganhas para Jesus",
+      suffix: ""
+    },
+    {
+      number: 3,
+      label: "Pessoas Batizadas nas Águas",
+      suffix: ""
+    },
+    {
+      number: 2500,
+      label: "Pessoas ouviram a palavra de Fé",
+      suffix: "+"
     }
   ],
   
@@ -44,7 +44,7 @@ export const siteConfig = {
     description: [
       "Somos uma organização cristã sem fins lucrativos que atua em Porto Velho/RO levando fé, alimento e esperança para famílias em situação de vulnerabilidade.",
       "Todo último domingo do mês, nossa equipe de voluntários realiza ações sociais nos bairros mais carentes da cidade, distribuindo cestas básicas e pregando o Evangelho.",
-      "Acreditamos que a religião pura e imaculada é cuidar dos órfãos e viúvas em suas dificuldades (Tiago 1:27). Desde setembro de 2023, atendemos até 20 famílias por mês nos bairros Mariana, Cascalheira e região."
+      "Acreditamos que a religião pura e imaculada é cuidar dos órfãos e viúvas em suas dificuldades (Tiago 1:27). Desde Setembro de 2023, temos a missão de atender +12 familias por mês em bairros carentes de Porto Velho e cidades vizinhas."
     ]
   },
   
