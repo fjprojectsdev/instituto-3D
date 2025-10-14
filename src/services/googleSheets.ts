@@ -1,4 +1,4 @@
-import axios from 'axios';
+// Removido axios, usando fetch nativo
 
 interface ContactData {
   name: string;
@@ -9,15 +9,22 @@ interface ContactData {
 
 export const sendToGoogleSheets = async (data: ContactData) => {
   // URL do Google Apps Script Web App
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxVOG3RET0bAlsC7mssMKtz1fgyRzSZYImhPw1mvtSOKloaC_iKpBGg1Ydg57VSY_pT8w/exec';
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzz-rmAEsoUBYNxHtpsl5NniQ0xOoorFFwGAjZvv-9kzibQSVDEnfIV4TsZqsCzC7BhXg/exec';
   
   try {
-    const response = await axios.post(SCRIPT_URL, {
-      ...data,
-      timestamp: new Date().toLocaleString('pt-BR')
+    const formData = new FormData();
+    formData.append('name', data.name);
+    formData.append('email', data.email);
+    formData.append('phone', data.phone);
+    formData.append('message', data.message);
+    formData.append('timestamp', new Date().toLocaleString('pt-BR'));
+    
+    const response = await fetch(SCRIPT_URL, {
+      method: 'POST',
+      body: formData
     });
     
-    return response.data;
+    return await response.json();
   } catch (error) {
     console.error('Erro ao enviar para Google Sheets:', error);
     throw error;
