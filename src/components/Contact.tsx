@@ -6,6 +6,7 @@ import { siteConfig } from "@/config/siteConfig";
 import { MapPin, Phone, Mail, Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
+import { sendToGoogleSheets } from "@/services/googleSheets";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, { message: "Nome é obrigatório" }).max(100),
@@ -23,11 +24,13 @@ const Contact = () => {
   });
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     try {
       contactSchema.parse(formData);
+      
+      await sendToGoogleSheets(formData);
       
       toast({
         title: "Mensagem enviada!",
@@ -40,6 +43,12 @@ const Contact = () => {
         toast({
           title: "Erro no formulário",
           description: error.errors[0].message,
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Erro ao enviar",
+          description: "Tente novamente mais tarde.",
           variant: "destructive",
         });
       }
