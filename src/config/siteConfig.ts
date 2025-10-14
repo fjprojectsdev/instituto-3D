@@ -2,36 +2,36 @@
 
 export const siteConfig = {
   // INFORMAÇÕES GERAIS
-  siteName: "Juntos por um Futuro Melhor",
-  siteDescription: "Transformando vidas através da educação, saúde e sustentabilidade",
+  siteName: "Projeto 3D - No Mínimo Doze",
+  siteDescription: "Levamos Alimento, Fé e Esperança às famílias necessitadas todo mês",
   
   // HERO SECTION
   hero: {
-    title: "Transformando Vidas, Construindo Esperança",
-    subtitle: "Juntos podemos criar um mundo mais justo e sustentável para todos. Faça parte dessa mudança!",
-    ctaButton: "Faça Parte",
+    title: "Levamos Alimento, Fé e Esperança",
+    subtitle: "Todo último domingo do mês, levamos cestas básicas e o Evangelho para famílias necessitadas de Porto Velho/RO. Junte-se a nós!",
+    ctaButton: "Seja um Padrinho 3D",
     ctaLink: "#contato",
   },
   
   // ESTATÍSTICAS
   stats: [
     {
-      number: 15000,
-      label: "Pessoas Atendidas",
+      number: 200,
+      label: "Famílias Atendidas",
       suffix: "+"
     },
     {
-      number: 120,
-      label: "Projetos Realizados",
+      number: 24,
+      label: "Ações Realizadas",
       suffix: "+"
     },
     {
-      number: 500,
+      number: 50,
       label: "Voluntários Ativos",
       suffix: "+"
     },
     {
-      number: 10,
+      number: 2,
       label: "Anos de Atuação",
       suffix: ""
     }
@@ -40,11 +40,11 @@ export const siteConfig = {
   // QUEM SOMOS
   about: {
     title: "Quem Somos",
-    subtitle: "Nossa Missão e Valores",
+    subtitle: "Levando Amor e Esperança",
     description: [
-      "Somos uma organização sem fins lucrativos dedicada a promover o desenvolvimento social e sustentável em comunidades vulneráveis.",
-      "Nossa missão é transformar vidas através de projetos inovadores nas áreas de educação, saúde e meio ambiente.",
-      "Acreditamos que juntos podemos construir um futuro melhor, onde todos tenham acesso a oportunidades dignas e possam desenvolver seu pleno potencial."
+      "Somos uma organização cristã sem fins lucrativos que atua em Porto Velho/RO levando fé, alimento e esperança para famílias em situação de vulnerabilidade.",
+      "Todo último domingo do mês, nossa equipe de voluntários realiza ações sociais nos bairros mais carentes da cidade, distribuindo cestas básicas e pregando o Evangelho.",
+      "Acreditamos que a religião pura e imaculada é cuidar dos órfãos e viúvas em suas dificuldades (Tiago 1:27). Desde setembro de 2023, atendemos até 20 famílias por mês nos bairros Mariana, Cascalheira e região."
     ]
   },
   
@@ -52,54 +52,57 @@ export const siteConfig = {
   projects: [
     {
       id: 1,
-      title: "Educação para Todos",
-      description: "Oferecemos reforço escolar, material didático e bolsas de estudo para crianças em situação de vulnerabilidade social.",
+      title: "Cestas Básicas Mensais",
+      description: "Distribuição mensal de cestas básicas para famílias carentes nos bairros Mariana, Cascalheira e região. Realizamos ações todo último domingo do mês.",
       image: "education",
-      link: "#"
+      link: "#contato"
     },
     {
       id: 2,
-      title: "Saúde na Comunidade",
-      description: "Levamos atendimento médico e odontológico gratuito para comunidades carentes através de clínicas móveis.",
+      title: "Evangelização Comunitária",
+      description: "Pregamos o Evangelho e oramos com as famílias atendidas, levando palavras de fé e esperança. Nossa missão vai além do alimento físico.",
       image: "health",
-      link: "#"
+      link: "#contato"
     },
     {
       id: 3,
-      title: "Meio Ambiente Sustentável",
-      description: "Desenvolvemos projetos de reflorestamento, reciclagem e educação ambiental para preservar nosso planeta.",
+      title: "Ações Emergenciais",
+      description: "Além das ações mensais, atendemos famílias em situações emergenciais durante o mês. Estamos prontos para ajudar quando mais precisam.",
       image: "environment",
-      link: "#"
+      link: "#contato"
     }
   ],
   
   // CALL TO ACTION - DOAÇÃO
   donation: {
-    title: "Faça uma Doação",
-    description: "Sua contribuição transforma vidas! Qualquer valor faz a diferença em nossos projetos sociais.",
-    buttonText: "Doe Agora",
-    buttonLink: "#"
+    title: "Seja um Padrinho 3D",
+    description: "Sua oferta transforma vidas! Torne-se um padrinho mensal e ajude-nos a levar alimento e esperança para mais famílias.",
+    buttonText: "Doar Agora",
+    buttonLink: "#contato",
+    pix: "23.760.946/0001-51"
   },
   
   // CALL TO ACTION - VOLUNTARIADO
   volunteer: {
-    title: "Seja um Voluntário",
-    description: "Doe seu tempo e talento! Junte-se ao nosso time de voluntários e ajude a construir um mundo melhor.",
+    title: "Junte-se ao Time",
+    description: "Participe das nossas ações mensais todo último domingo do mês. Doe seu tempo e amor ao próximo. Venha fazer a diferença!",
     buttonText: "Quero Ser Voluntário",
-    buttonLink: "#"
+    buttonLink: "#contato"
   },
   
   // CONTATO
   contact: {
     title: "Entre em Contato",
-    subtitle: "Estamos aqui para ouvir você",
+    subtitle: "Estamos prontos para ouvir você",
     formTitle: "Envie sua Mensagem",
-    address: "Rua das Flores, 123 - Centro, São Paulo - SP",
-    phone: "(11) 3456-7890",
-    email: "contato@ongfuturomelhor.org",
+    address: "Porto Velho - Rondônia",
+    pix: "23.760.946/0001-51",
+    cnpj: "23.760.946/0001-51 (3D/Aspham)",
+    email: "contato@projeto3d.org.br",
+    instagram: "@projeto3d.minimo12",
     social: {
-      facebook: "https://facebook.com",
-      instagram: "https://instagram.com",
+      facebook: "https://facebook.com/projeto3d.minimo12",
+      instagram: "https://instagram.com/projeto3d.minimo12",
       twitter: "https://twitter.com",
       linkedin: "https://linkedin.com"
     }
@@ -107,13 +110,13 @@ export const siteConfig = {
   
   // FOOTER
   footer: {
-    description: "Transformando vidas e construindo um futuro melhor para todos.",
+    description: "Levando Alimento, Fé e Esperança às famílias necessitadas. Uma ação cristã de amor ao próximo.",
     links: [
       { label: "Início", href: "#hero" },
       { label: "Quem Somos", href: "#sobre" },
       { label: "Projetos", href: "#projetos" },
       { label: "Contato", href: "#contato" }
     ],
-    copyright: "2024 Juntos por um Futuro Melhor. Todos os direitos reservados."
+    copyright: "2024 Projeto 3D - No Mínimo Doze. Todos os direitos reservados. CNPJ: 23.760.946/0001-51"
   }
 };

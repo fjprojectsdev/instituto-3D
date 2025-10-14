@@ -133,7 +133,7 @@ const Contact = () => {
                 <MapPin className="w-6 h-6 text-primary" />
               </div>
               <div>
-                <h4 className="font-semibold text-foreground mb-2">Endereço</h4>
+                <h4 className="font-semibold text-foreground mb-2">Localização</h4>
                 <p className="text-muted-foreground">{siteConfig.contact.address}</p>
               </div>
             </div>
@@ -143,8 +143,8 @@ const Contact = () => {
                 <Phone className="w-6 h-6 text-primary" />
               </div>
               <div>
-                <h4 className="font-semibold text-foreground mb-2">Telefone</h4>
-                <p className="text-muted-foreground">{siteConfig.contact.phone}</p>
+                <h4 className="font-semibold text-foreground mb-2">PIX / CNPJ</h4>
+                <p className="text-muted-foreground font-mono">{siteConfig.contact.cnpj}</p>
               </div>
             </div>
 
@@ -158,8 +158,25 @@ const Contact = () => {
               </div>
             </div>
 
+            <div className="flex items-start gap-4">
+              <div className="bg-primary/10 p-3 rounded-lg">
+                <Instagram className="w-6 h-6 text-primary" />
+              </div>
+              <div>
+                <h4 className="font-semibold text-foreground mb-2">Instagram</h4>
+                <a 
+                  href={siteConfig.contact.social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:text-primary-light transition-colors"
+                >
+                  {siteConfig.contact.instagram}
+                </a>
+              </div>
+            </div>
+
             <div>
-              <h4 className="font-semibold text-foreground mb-4">Redes Sociais</h4>
+              <h4 className="font-semibold text-foreground mb-4">Siga-nos</h4>
               <div className="flex gap-4">
                 <a 
                   href={siteConfig.contact.social.facebook}
@@ -178,24 +195,6 @@ const Contact = () => {
                   aria-label="Instagram"
                 >
                   <Instagram className="w-6 h-6" />
-                </a>
-                <a 
-                  href={siteConfig.contact.social.twitter}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-primary/10 p-3 rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors"
-                  aria-label="Twitter"
-                >
-                  <Twitter className="w-6 h-6" />
-                </a>
-                <a 
-                  href={siteConfig.contact.social.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-primary/10 p-3 rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="w-6 h-6" />
                 </a>
               </div>
             </div>
