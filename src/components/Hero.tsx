@@ -17,11 +17,11 @@ const Hero = () => {
       id="hero" 
       className="relative min-h-screen flex items-center justify-center overflow-hidden font-['Inter',_sans-serif]"
     >
-      {/* Blue Sunny Gradient Background */}
+      {/* Blue and Emerald Gradient Background */}
       <div 
         className="absolute inset-0 z-0"
         style={{
-          background: 'linear-gradient(135deg, #0ea5e9 0%, #3b82f6 25%, #fbbf24 50%, #f59e0b 75%, #0ea5e9 100%)',
+          background: 'linear-gradient(135deg, #0ea5e9 0%, #3b82f6 25%, #10b981 50%, #059669 75%, #0ea5e9 100%)',
           backgroundSize: '400% 400%',
           animation: 'sunnyGradient 12s ease-in-out infinite'
         }}
