@@ -25,11 +25,12 @@ const Hero = () => {
           backgroundImage: `url(${heroImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
+          filter: 'blur(3px)',
         }}
       />
       
       {/* Gentle Gradient Overlay */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/35 via-black/25 to-black/40" />
+      <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/50 via-black/35 to-black/50" />
       
       {/* Content */}
       <div className="container relative z-20 mx-auto px-6 text-center max-w-4xl">
