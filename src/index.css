@@ -162,3 +162,12 @@ All colors MUST be HSL.
     transform: translateY(-6px) translateX(0px);
   }
 }
+
+@keyframes sunnyGradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}

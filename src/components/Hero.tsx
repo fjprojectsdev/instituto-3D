@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/siteConfig";
-import heroImage from "@/assets/hero-bg.jpg";
 import { useEffect, useState } from "react";
 
 const Hero = () => {
@@ -16,21 +15,17 @@ const Hero = () => {
   return (
     <section 
       id="hero" 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden font-['Playfair_Display',_serif]"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden font-['Inter',_sans-serif]"
     >
-      {/* Background Image */}
+      {/* Blue Sunny Gradient Background */}
       <div 
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: `url(${heroImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          filter: 'blur(3px)',
+          background: 'linear-gradient(135deg, #0ea5e9 0%, #3b82f6 25%, #fbbf24 50%, #f59e0b 75%, #0ea5e9 100%)',
+          backgroundSize: '400% 400%',
+          animation: 'sunnyGradient 12s ease-in-out infinite'
         }}
       />
-      
-      {/* Gentle Gradient Overlay */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/50 via-black/35 to-black/50" />
       
       {/* Content */}
       <div className="container relative z-20 mx-auto px-6 text-center max-w-4xl">
