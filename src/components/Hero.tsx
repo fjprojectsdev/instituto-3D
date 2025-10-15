@@ -16,65 +16,45 @@ const Hero = () => {
   return (
     <section 
       id="hero" 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden font-['Poppins',_sans-serif]"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden font-['Playfair_Display',_serif]"
     >
-      {/* Animated Realistic Background */}
-      <div className="absolute inset-0 z-0">
-        {/* Morning sunlight gradient */}
-        <div 
-          className="absolute inset-0"
-          style={{
-            background: 'linear-gradient(45deg, #fbbf24 0%, #f59e0b 20%, #10b981 40%, #3b82f6 60%, #fbbf24 80%, #f59e0b 100%)',
-            backgroundSize: '300% 300%',
-            animation: 'morningLight 20s ease-in-out infinite'
-          }}
-        />
-        
-        {/* Simulated people and community elements */}
-        <div className="absolute inset-0">
-          {/* Volunteers (larger moving elements) */}
-          <div className="absolute top-1/4 left-0 w-8 h-12 bg-gradient-to-b from-orange-400/40 to-yellow-500/30 rounded-full" style={{animation: 'walkRight 15s linear infinite'}} />
-          <div className="absolute top-1/3 right-0 w-6 h-10 bg-gradient-to-b from-green-400/35 to-blue-400/25 rounded-full" style={{animation: 'walkLeft 18s linear infinite'}} />
-          
-          {/* Children playing (smaller bouncing elements) */}
-          <div className="absolute bottom-1/3 left-1/4 w-4 h-6 bg-gradient-to-b from-yellow-400/50 to-orange-400/40 rounded-full" style={{animation: 'playBounce 3s ease-in-out infinite'}} />
-          <div className="absolute bottom-1/4 right-1/3 w-3 h-5 bg-gradient-to-b from-blue-400/45 to-green-400/35 rounded-full" style={{animation: 'playBounce 2.5s ease-in-out infinite', animationDelay: '1s'}} />
-          
-          {/* Hugging/gathering groups (pulsing circles) */}
-          <div className="absolute top-1/2 left-1/3 w-12 h-8 bg-gradient-radial from-orange-300/30 to-transparent rounded-full" style={{animation: 'gentleGather 6s ease-in-out infinite'}} />
-          <div className="absolute bottom-1/2 right-1/4 w-10 h-6 bg-gradient-radial from-green-300/25 to-transparent rounded-full" style={{animation: 'gentleGather 7s ease-in-out infinite', animationDelay: '2s'}} />
-          
-          {/* Wind effects (moving particles) */}
-          <div className="absolute top-1/5 left-1/2 w-2 h-2 bg-white/20 rounded-full" style={{animation: 'windDrift 12s linear infinite'}} />
-          <div className="absolute top-2/3 left-3/4 w-1 h-1 bg-yellow-200/30 rounded-full" style={{animation: 'windDrift 10s linear infinite', animationDelay: '3s'}} />
-          
-          {/* Sunlight rays */}
-          <div 
-            className="absolute inset-0 opacity-40"
-            style={{
-              background: 'conic-gradient(from 45deg at 80% 20%, transparent 0deg, rgba(251, 191, 36, 0.2) 30deg, transparent 60deg, rgba(245, 158, 11, 0.15) 90deg, transparent 120deg)',
-              animation: 'sunRays 25s linear infinite'
-            }}
-          />
-        </div>
-      </div>
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `url(${heroImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          filter: 'blur(3px)',
+        }}
+      />
       
-      {/* Soft morning overlay */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-b from-amber-900/20 via-transparent to-orange-900/15" />
+      {/* Gentle Gradient Overlay */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/50 via-black/35 to-black/50" />
       
       {/* Content */}
       <div className="container relative z-20 mx-auto px-6 text-center max-w-4xl">
         {/* Main Welcome Title */}
         <div className="mb-6">
           <h1 
-            className={`text-4xl md:text-5xl lg:text-6xl font-light text-[#f8f5f2] transition-all duration-2000 ease-out ${
+            className={`text-4xl md:text-5xl lg:text-6xl font-normal cursor-pointer select-none transition-all duration-1500 ease-out ${
               isVisible ? 'opacity-100' : 'opacity-0'
-            }`}
+            } hover:scale-105`}
             style={{
-              textShadow: '0 4px 12px rgba(0, 0, 0, 0.4), 0 2px 6px rgba(251, 191, 36, 0.2)',
-              fontWeight: '300',
-              letterSpacing: '0.5px',
-              animation: isVisible ? 'welcomeFloat 5s ease-in-out infinite, welcomeGlow 4s ease-in-out infinite' : 'none'
+              color: '#fef3c7',
+              textShadow: '0 4px 16px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(251, 191, 36, 0.3)',
+              fontWeight: '400',
+              letterSpacing: '1px',
+              animation: isVisible ? 'elegantFloat 6s ease-in-out infinite, gentlePulse 4s ease-in-out infinite' : 'none',
+              transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.textShadow = '0 4px 16px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(251, 191, 36, 0.5), 0 0 30px rgba(251, 191, 36, 0.4)';
+              e.target.style.color = '#fbbf24';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.textShadow = '0 4px 16px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(251, 191, 36, 0.3)';
+              e.target.style.color = '#fef3c7';
             }}
           >
             Seja bem-vindo ao Instituto 3D
