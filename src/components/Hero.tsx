@@ -1,8 +1,30 @@
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/siteConfig";
 import heroImage from "@/assets/hero-bg.jpg";
+import { useEffect, useState } from "react";
 
 const Hero = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [typedText, setTypedText] = useState("");
+  const welcomeText = "Seja Bem-vindo ao Instituto 3D";
+
+  useEffect(() => {
+    setIsVisible(true);
+    
+    // Typing animation
+    let index = 0;
+    const timer = setInterval(() => {
+      if (index < welcomeText.length) {
+        setTypedText(welcomeText.slice(0, index + 1));
+        index++;
+      } else {
+        clearInterval(timer);
+      }
+    }, 100);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section 
       id="hero" 
@@ -10,7 +32,7 @@ const Hero = () => {
     >
       {/* Background Image */}
       <div 
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 transform scale-105 transition-transform duration-1000"
         style={{
           backgroundImage: `url(${heroImage})`,
           backgroundSize: 'cover',
@@ -19,31 +41,51 @@ const Hero = () => {
       />
       
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 z-10 bg-gradient-overlay" />
+      <div className="absolute inset-0 z-10 bg-gradient-to-br from-black/60 via-black/40 to-black/60" />
       
       {/* Content */}
-      <div className="container relative z-20 mx-auto px-4 text-center animate-fade-in">
-        <h1 className="mb-6 text-5xl md:text-7xl font-bold text-primary-foreground drop-shadow-lg">
-          {siteConfig.hero.title}
-        </h1>
-        <p className="mb-8 text-xl md:text-2xl text-primary-foreground/90 max-w-3xl mx-auto drop-shadow-md">
-          {siteConfig.hero.subtitle}
-        </p>
-        <Button 
-          size="lg"
-          className="bg-secondary hover:bg-secondary-light text-secondary-foreground text-lg px-8 py-6 shadow-card-hover transition-all duration-300 hover:scale-105"
-          asChild
-        >
-          <a href={siteConfig.hero.ctaLink}>
-            {siteConfig.hero.ctaButton}
-          </a>
-        </Button>
+      <div className="container relative z-20 mx-auto px-4 text-center max-w-5xl">
+        {/* Main Welcome Title with Typing Effect */}
+        <div className="mb-4">
+          <h1 className={`text-4xl md:text-6xl lg:text-7xl font-bold text-white transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            {typedText}
+            <span className="animate-pulse text-orange-500">|</span>
+          </h1>
+        </div>
+        
+        {/* Subtitle with fade animation */}
+        <div className={`transition-all duration-1000 delay-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+          <p className="text-lg md:text-xl text-white/80 mb-8 font-light tracking-wide lowercase italic">
+            levamos alimento, fé e esperança
+          </p>
+        </div>
+        
+        {/* Description */}
+        <div className={`transition-all duration-1000 delay-1500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+          <p className="text-base md:text-lg text-white/90 mb-10 leading-relaxed max-w-3xl mx-auto">
+            {siteConfig.hero.subtitle}
+          </p>
+        </div>
+        
+        {/* CTA Button with hover animations */}
+        <div className={`transition-all duration-1000 delay-2000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+          <Button 
+            size="lg"
+            className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-10 py-4 text-lg font-semibold rounded-full shadow-2xl hover:shadow-orange-500/25 transition-all duration-300 hover:scale-105 hover:-translate-y-1 border-2 border-white/20 backdrop-blur-sm"
+            onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            <span className="flex items-center gap-2">
+              {siteConfig.hero.ctaButton}
+              <span className="text-xl">❤️</span>
+            </span>
+          </Button>
+        </div>
       </div>
       
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
-        <div className="w-6 h-10 border-2 border-primary-foreground/50 rounded-full flex items-start justify-center p-2">
-          <div className="w-1 h-3 bg-primary-foreground/50 rounded-full" />
+      {/* Floating scroll indicator */}
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
+        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
     </section>
