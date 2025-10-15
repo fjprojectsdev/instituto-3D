@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/siteConfig";
+import heroImage from "@/assets/hero-bg.jpg";
 import { useEffect, useState } from "react";
 
 const Hero = () => {
@@ -17,53 +18,33 @@ const Hero = () => {
       id="hero" 
       className="relative min-h-screen flex items-center justify-center overflow-hidden font-['Poppins',_sans-serif]"
     >
-      {/* Animated Background */}
-      <div className="absolute inset-0 z-0">
-        {/* Base gradient with warm colors */}
-        <div 
-          className="absolute inset-0 animate-pulse"
-          style={{
-            background: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 25%, #10b981 50%, #3b82f6 75%, #fbbf24 100%)',
-            backgroundSize: '400% 400%',
-            animation: 'gradientShift 15s ease infinite'
-          }}
-        />
-        
-        {/* Floating elements simulating people and movement */}
-        <div className="absolute inset-0">
-          {/* Floating circles representing people/community */}
-          <div className="absolute top-1/4 left-1/4 w-4 h-4 bg-white/20 rounded-full animate-bounce" style={{animationDelay: '0s', animationDuration: '3s'}} />
-          <div className="absolute top-1/3 right-1/4 w-3 h-3 bg-yellow-300/30 rounded-full animate-bounce" style={{animationDelay: '1s', animationDuration: '4s'}} />
-          <div className="absolute bottom-1/3 left-1/3 w-5 h-5 bg-green-300/25 rounded-full animate-bounce" style={{animationDelay: '2s', animationDuration: '3.5s'}} />
-          <div className="absolute top-1/2 right-1/3 w-3 h-3 bg-blue-300/30 rounded-full animate-bounce" style={{animationDelay: '0.5s', animationDuration: '4.5s'}} />
-          <div className="absolute bottom-1/4 right-1/5 w-4 h-4 bg-orange-300/25 rounded-full animate-bounce" style={{animationDelay: '1.5s', animationDuration: '3.2s'}} />
-          
-          {/* Gentle wave patterns */}
-          <div 
-            className="absolute inset-0 opacity-30"
-            style={{
-              background: 'radial-gradient(circle at 20% 30%, rgba(251, 191, 36, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(16, 185, 129, 0.2) 0%, transparent 50%), radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.2) 0%, transparent 50%)',
-              animation: 'float 8s ease-in-out infinite'
-            }}
-          />
-        </div>
-      </div>
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `url(${heroImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          filter: 'blur(3px)',
+        }}
+      />
       
-      {/* Soft overlay for text readability */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/30 via-black/20 to-black/30" />
+      {/* Gentle Gradient Overlay */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/50 via-black/35 to-black/50" />
       
       {/* Content */}
       <div className="container relative z-20 mx-auto px-6 text-center max-w-4xl">
         {/* Main Welcome Title */}
         <div className="mb-6">
           <h1 
-            className={`text-4xl md:text-5xl lg:text-6xl font-light text-[#f8f5f2] transition-opacity duration-1500 ease-out ${
+            className={`text-4xl md:text-5xl lg:text-6xl font-light text-[#f8f5f2] transition-all duration-1500 ease-out ${
               isVisible ? 'opacity-100' : 'opacity-0'
             }`}
             style={{
               textShadow: '0 2px 8px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.5)',
               fontWeight: '300',
-              letterSpacing: '0.5px'
+              letterSpacing: '0.5px',
+              animation: isVisible ? 'gentleFloat 4s ease-in-out infinite, gentlePulse 3s ease-in-out infinite' : 'none'
             }}
           >
             Seja bem-vindo ao Instituto 3D
