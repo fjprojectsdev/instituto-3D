@@ -1,7 +1,11 @@
 import { siteConfig } from "@/config/siteConfig";
-import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
+import { Facebook, Instagram, Twitter, Linkedin, Settings } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
+
   return (
     <footer className="bg-foreground text-background py-12">
       <div className="container mx-auto px-4">
@@ -77,9 +81,18 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="border-t border-background/20 pt-8 text-center">
-          <p className="text-background/60">
+          <p className="text-background/60 mb-4">
             © {siteConfig.footer.copyright}
           </p>
+          <Button 
+            variant="ghost" 
+            size="sm"
+            onClick={() => navigate('/admin')}
+            className="text-xs text-background/40 hover:text-background/80"
+          >
+            <Settings className="w-3 h-3 mr-1" />
+            Admin
+          </Button>
         </div>
       </div>
     </footer>
