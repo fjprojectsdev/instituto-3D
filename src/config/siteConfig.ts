@@ -117,6 +117,6 @@ export const siteConfig = {
       { label: "Projetos", href: "#projetos" },
       { label: "Contato", href: "#contato" }
     ],
-    copyright: "2024 Projeto 3D - No Mínimo Doze. Todos os direitos reservados. CNPJ: 23.760.946/0001-51"
+    copyright: "2025 Projeto 3D - No Mínimo Doze. Todos os direitos reservados. CNPJ: 23.760.946/0001-51"
   }
 };
