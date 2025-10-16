@@ -1,7 +1,11 @@
 import { siteConfig } from "@/config/siteConfig";
 import aboutImage from "@/assets/about-us.jpg";
+import { useAdminImages } from "@/hooks/useAdminImages";
 
 const About = () => {
+  const adminImages = useAdminImages();
+  const displayImage = adminImages.about || aboutImage;
+
   return (
     <section id="sobre" className="py-20 bg-background">
       <div className="container mx-auto px-4">
@@ -17,7 +21,7 @@ const About = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="animate-fade-in-up">
             <img 
-              src={aboutImage} 
+              src={displayImage} 
               alt="Sobre Nós"
               className="rounded-lg shadow-card-hover w-full h-auto object-cover"
             />

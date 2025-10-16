@@ -9,8 +9,7 @@ export const useAdminImages = () => {
     project3: ''
   });
 
-  useEffect(() => {
-    // Carregar imagens do localStorage
+  const loadImages = () => {
     const loadedImages = {
       hero: localStorage.getItem('image_hero') || '',
       about: localStorage.getItem('image_about') || '',
@@ -19,6 +18,25 @@ export const useAdminImages = () => {
       project3: localStorage.getItem('image_project3') || ''
     };
     setImages(loadedImages);
+  };
+
+  useEffect(() => {
+    loadImages();
+    
+    // Escutar mudanças no localStorage
+    const handleStorageChange = () => {
+      loadImages();
+    };
+    
+    window.addEventListener('storage', handleStorageChange);
+    
+    // Verificar mudanças a cada segundo (para mudanças na mesma aba)
+    const interval = setInterval(loadImages, 1000);
+    
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+      clearInterval(interval);
+    };
   }, []);
 
   return images;

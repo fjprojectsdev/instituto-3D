@@ -3,6 +3,7 @@ import { siteConfig } from "@/config/siteConfig";
 import educationImage from "@/assets/project-education.jpg";
 import healthImage from "@/assets/project-health.jpg";
 import environmentImage from "@/assets/project-environment.jpg";
+import { useAdminImages } from "@/hooks/useAdminImages";
 
 const projectImages: Record<string, string> = {
   education: educationImage,
@@ -14,18 +15,27 @@ const ProjectCard = ({
   title, 
   description, 
   image, 
-  link 
+  link,
+  projectIndex
 }: { 
   title: string; 
   description: string; 
   image: string; 
   link: string;
+  projectIndex: number;
 }) => {
+  const adminImages = useAdminImages();
+  
+  const getProjectImage = () => {
+    const adminKey = `project${projectIndex + 1}` as keyof typeof adminImages;
+    return adminImages[adminKey] || projectImages[image];
+  };
+
   return (
     <div className="bg-card rounded-lg overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2 group">
       <div className="overflow-hidden">
         <img 
-          src={projectImages[image]} 
+          src={getProjectImage()} 
           alt={title}
           className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
         />
@@ -63,13 +73,14 @@ const Projects = () => {
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in-up">
-          {siteConfig.projects.map((project) => (
+          {siteConfig.projects.map((project, index) => (
             <ProjectCard
               key={project.id}
               title={project.title}
               description={project.description}
               image={project.image}
               link={project.link}
+              projectIndex={index}
             />
           ))}
         </div>
