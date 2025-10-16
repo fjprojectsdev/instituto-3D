@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/siteConfig";
 import { useEffect, useState } from "react";
+import { useAdminImages } from "@/hooks/useAdminImages";
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const adminImages = useAdminImages();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -12,19 +14,26 @@ const Hero = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  const backgroundStyle = adminImages.hero ? {
+    backgroundImage: `url(${adminImages.hero})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    filter: 'blur(3px)',
+  } : {
+    background: 'linear-gradient(135deg, #0ea5e9 0%, #3b82f6 25%, #10b981 50%, #059669 75%, #0ea5e9 100%)',
+    backgroundSize: '400% 400%',
+    animation: 'sunnyGradient 12s ease-in-out infinite'
+  };
+
   return (
     <section 
       id="hero" 
       className="relative min-h-screen flex items-center justify-center overflow-hidden font-['Inter',_sans-serif]"
     >
-      {/* Blue and Emerald Gradient Background */}
+      {/* Dynamic Background */}
       <div 
         className="absolute inset-0 z-0"
-        style={{
-          background: 'linear-gradient(135deg, #0ea5e9 0%, #3b82f6 25%, #10b981 50%, #059669 75%, #0ea5e9 100%)',
-          backgroundSize: '400% 400%',
-          animation: 'sunnyGradient 12s ease-in-out infinite'
-        }}
+        style={backgroundStyle}
       />
       
       {/* Content */}
