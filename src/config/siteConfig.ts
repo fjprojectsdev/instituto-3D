@@ -53,7 +53,7 @@ export const siteConfig = {
     {
       id: 1,
       title: "Cestas Básicas Mensais",
-      description: "Distribuição mensal de cestas básicas para famílias carentes em Porto Velho e cidades vizinhas. Realizamos ações todo último domingo do mês.",
+      description: "Distribuição mensal de no mínimo 12 cestas básicas para famílias carentes em bairros de Porto Velho com o propósito principal de levar a palavra de Deus.",
       image: "education",
       link: "#contato"
     },
