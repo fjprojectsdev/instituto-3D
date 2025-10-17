@@ -53,7 +53,7 @@ export const siteConfig = {
     {
       id: 1,
       title: "Cestas Básicas Mensais",
-      description: "Distribuição mensal de cestas básicas para famílias carentes nos bairros Mariana, Cascalheira e região. Realizamos ações todo último domingo do mês.",
+      description: "Distribuição mensal de cestas básicas para famílias carentes em Porto Velho e cidades vizinhas. Realizamos ações todo último domingo do mês.",
       image: "education",
       link: "#contato"
     },
