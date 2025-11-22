@@ -1,31 +1,512 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projeto 3D - No Mínimo Doze | Levando Alimento, Fé e Esperança</title>
-    <meta name="description" content="Organização cristã em Porto Velho/RO que distribui cestas básicas e leva o Evangelho para famílias necessitadas todo último domingo do mês" />
-    <meta name="author" content="Projeto 3D - No Mínimo Doze" />
-    <meta name="keywords" content="projeto social, ong cristã, Porto Velho, Rondônia, cestas básicas, doação, voluntariado, evangelização" />
-
-    <meta property="og:title" content="Projeto 3D - No Mínimo Doze | Levando Alimento, Fé e Esperança" />
-    <meta property="og:description" content="Organização cristã que distribui cestas básicas e leva o Evangelho para famílias necessitadas em Porto Velho/RO" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Projeto 3D - No Mínimo Doze" />
-    <meta name="twitter:description" content="Levando Alimento, Fé e Esperança às famílias necessitadas" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto 3D Mínimo 12 | Transformando Vidas em Porto Velho</title>
+    <meta name="description" content="Doamos cestas básicas todos os meses para famílias carentes em Porto Velho. 100% da sua doação vira alimento.">
     
-    <!-- Google Fonts - Inter -->
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  </head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome (Ícones) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <!-- Configurações Personalizadas Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Paleta baseada na logo do projeto
+                        brand: {
+                            primary: '#00D1A0',   // Verde principal (Botões, CTA)
+                            secondary: '#004E46', // Verde escuro (Barras, destaques)
+                            dark: '#0C0F0F',      // Preto suave (Texto)
+                            accent: '#D89A1F',    // Âmbar (Detalhes especiais)
+                        },
+                        // Mantendo compatibilidade com escala de verdes para alguns fundos suaves
+                        verde: {
+                            50: '#f0fdfa', // Fundo muito claro (adaptado para teal)
+                            100: '#ccfbf1',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Efeito de paralaxe suave no Hero */
+        .hero-bg {
+            /* Gradiente ajustado para usar o verde escuro da marca com transparência */
+            background-image: linear-gradient(rgba(0, 78, 70, 0.9), rgba(0, 78, 70, 0.8)), url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        /* Animações sutis */
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="font-sans text-brand-dark antialiased bg-white">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <a href="#" class="flex-shrink-0 flex items-center gap-2">
+                        <!-- Ícone Logo Simbólico -->
+                        <div class="bg-brand-primary text-white p-2 rounded-lg">
+                            <i class="fa-solid fa-hands-holding-circle text-xl"></i>
+                        </div>
+                        <!-- Texto logo -->
+                        <span class="font-bold text-xl tracking-tight text-brand-dark">Projeto 3D <span class="text-brand-primary">Mínimo 12</span></span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#impacto" class="text-gray-600 hover:text-brand-primary font-medium transition">Impacto</a>
+                    <a href="#transparencia" class="text-gray-600 hover:text-brand-primary font-medium transition">Transparência</a>
+                    <a href="#fotos" class="text-gray-600 hover:text-brand-primary font-medium transition">Fotos</a>
+                    <a href="#faq" class="text-gray-600 hover:text-brand-primary font-medium transition">FAQ</a>
+                    <!-- Botão CTA Navbar -->
+                    <a href="#doar" class="bg-brand-primary hover:bg-teal-400 text-white px-6 py-2.5 rounded-full font-bold shadow-lg transform hover:scale-105 transition duration-200">
+                        Doar Agora
+                    </a>
+                </div>
+                <!-- Botão Menu Mobile -->
+                <div class="flex items-center md:hidden">
+                    <button onclick="toggleMenu()" class="text-brand-dark hover:text-brand-primary focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Menu Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#impacto" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-primary hover:bg-verde-50 rounded-md" onclick="toggleMenu()">Impacto</a>
+                <a href="#transparencia" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-primary hover:bg-verde-50 rounded-md" onclick="toggleMenu()">Transparência</a>
+                <a href="#fotos" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-primary hover:bg-verde-50 rounded-md" onclick="toggleMenu()">Fotos</a>
+                <a href="#doar" class="block px-3 py-4 text-center text-base font-bold text-white bg-brand-primary rounded-md mt-4" onclick="toggleMenu()">Quero Doar</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-bg h-screen min-h-[600px] flex items-center justify-center relative px-4 text-center">
+        <div class="max-w-4xl mx-auto text-white fade-in-up" style="animation-delay: 0.1s;">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+                Transformamos vidas em <span class="text-brand-primary">Porto Velho</span>
+            </h1>
+            <p class="text-lg md:text-2xl mb-10 font-light max-w-2xl mx-auto text-gray-100">
+                Todo mês, no mínimo, 12 famílias recebem uma cesta básica e uma palavra de esperança.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <!-- Botão Hero -->
+                <a href="#doar" class="bg-brand-primary hover:bg-teal-400 text-white font-bold py-4 px-10 rounded-full text-lg shadow-xl transform hover:scale-105 transition duration-300 border-2 border-transparent">
+                    Apoiar uma Família por R$ 100
+                </a>
+                <a href="#sobre" class="bg-transparent hover:bg-white/10 text-white font-semibold py-4 px-10 rounded-full text-lg border-2 border-white transition duration-300 backdrop-blur-sm">
+                    Conhecer o Projeto
+                </a>
+            </div>
+        </div>
+        
+        <!-- Seta indicativa para baixo -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce text-white opacity-70">
+            <i class="fa-solid fa-chevron-down text-2xl"></i>
+        </div>
+    </header>
+
+    <!-- O Que Fazemos -->
+    <section id="sobre" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-brand-secondary font-bold tracking-wide uppercase text-sm">Nossa Missão</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mt-2">O Que Fazemos</h2>
+                <p class="mt-4 text-xl text-gray-600">No Projeto 3D Mínimo 12, nosso compromisso é simples e direto.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-lg hover:border-brand-primary/30 transition duration-300 group">
+                    <div class="w-14 h-14 bg-verde-50 rounded-full flex items-center justify-center text-brand-primary mb-6 group-hover:bg-brand-primary group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-basket-shopping text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Doação Mensal</h3>
+                    <p class="text-gray-600">Doamos cestas básicas todos os meses para famílias carentes em Porto Velho.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-lg hover:border-brand-primary/30 transition duration-300 group">
+                    <div class="w-14 h-14 bg-verde-50 rounded-full flex items-center justify-center text-brand-primary mb-6 group-hover:bg-brand-primary group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-hand-holding-dollar text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Custo Real</h3>
+                    <p class="text-gray-600">Cada cesta custa <span class="text-brand-accent font-bold">R$ 100</span>, e nada do valor é desviado para logística.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-lg hover:border-brand-primary/30 transition duration-300 group">
+                    <div class="w-14 h-14 bg-verde-50 rounded-full flex items-center justify-center text-brand-primary mb-6 group-hover:bg-brand-primary group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-users text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Mínimo Garantido</h3>
+                    <p class="text-gray-600">Ajudamos no mínimo 12 famílias todo mês — e aumentamos quando recebemos apoio.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-lg hover:border-brand-primary/30 transition duration-300 group">
+                    <div class="w-14 h-14 bg-verde-50 rounded-full flex items-center justify-center text-brand-primary mb-6 group-hover:bg-brand-primary group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-cross text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Evangelho</h3>
+                    <p class="text-gray-600">Compartilhamos a mensagem de Jesus com cada família atendida.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nosso Impacto (Números) -->
+    <!-- Fundo secundário (Verde escuro) -->
+    <section id="impacto" class="py-20 bg-brand-secondary text-white relative overflow-hidden">
+        <!-- Elementos decorativos de fundo -->
+        <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+            <i class="fa-solid fa-heart absolute top-10 left-10 text-9xl"></i>
+            <i class="fa-solid fa-hand-holding-heart absolute bottom-10 right-10 text-9xl"></i>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Nosso Impacto (Números Reais)</h2>
+                <p class="text-white/80 text-lg">Esses números são públicos porque acreditamos em transparência total.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                <!-- Stat 1 -->
+                <div class="p-6 bg-white/5 backdrop-blur-lg rounded-xl border border-white/10 hover:bg-white/10 transition">
+                    <div class="text-5xl font-extrabold text-brand-primary mb-2">14</div>
+                    <div class="text-lg font-medium text-gray-100">Famílias atendidas<br>no último mês</div>
+                </div>
+                <!-- Stat 2 -->
+                <div class="p-6 bg-white/5 backdrop-blur-lg rounded-xl border border-white/10 hover:bg-white/10 transition">
+                    <div class="text-5xl font-extrabold text-brand-primary mb-2">24</div>
+                    <div class="text-lg font-medium text-gray-100">Famílias atendidas<br>no mês anterior</div>
+                </div>
+                <!-- Stat 3 -->
+                <div class="p-6 bg-white/5 backdrop-blur-lg rounded-xl border border-white/10 hover:bg-white/10 transition">
+                    <div class="text-5xl font-extrabold text-white mb-2">12</div>
+                    <div class="text-lg font-medium text-gray-100">Mínimo garantido<br>de cestas todo mês</div>
+                </div>
+                <!-- Stat 4 - Destaque em Âmbar -->
+                <div class="p-6 bg-white/5 backdrop-blur-lg rounded-xl border border-white/10 hover:bg-white/10 transition">
+                    <div class="text-5xl font-extrabold text-brand-accent mb-2"><span class="text-2xl align-top">R$</span>100</div>
+                    <div class="text-lg font-medium text-gray-100">Custo único<br>por cesta básica</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transparência -->
+    <section id="transparencia" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col lg:flex-row">
+                <div class="lg:w-1/2 p-10 lg:p-16 flex flex-col justify-center">
+                    <span class="text-brand-secondary font-bold tracking-wide uppercase text-sm mb-2">Integridade</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-6">Para onde vai o seu dinheiro?</h2>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-check-circle text-brand-primary text-2xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-brand-dark">100% para comida</h4>
+                                <p class="text-gray-600">Todo o valor arrecadado compra alimentos. Cada centavo vira nutrição.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-check-circle text-brand-primary text-2xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-brand-dark">Zero taxa administrativa</h4>
+                                <p class="text-gray-600">Não retiramos nada para logística, transporte, montagem ou administração. Nós cobrimos esses custos.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-equals text-brand-primary text-2xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-brand-dark">Equação Simples</h4>
+                                <p class="text-gray-600 font-semibold">Cada <span class="text-brand-accent">R$ 100</span> doados = 1 família alimentada com uma cesta completa.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 bg-verde-50 relative min-h-[300px] lg:min-h-full">
+                    <!-- Imagem real do projeto -->
+                    <img src="images/Imagem do WhatsApp de 2025-09-23 à(s) 20.23.15_6ff92965.jpg" alt="Cesta básica alimentos" class="absolute inset-0 w-full h-full object-cover mix-blend-multiply opacity-80">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="bg-white/90 backdrop-blur px-8 py-4 rounded-lg shadow-lg transform -rotate-2">
+                            <p class="text-brand-secondary font-bold text-xl text-center">Transparência <br>Total</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria de Fotos -->
+    <section id="fotos" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-brand-dark">Fotos das Entregas</h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Foto 1 -->
+                <div class="group relative h-64 rounded-xl overflow-hidden shadow-md cursor-pointer">
+                    <img src="images/photo_2025-11-07_20-24-23.jpg" alt="Projeto 3D em ação" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+                        <p class="text-white font-medium">Projeto em Ação</p>
+                    </div>
+                </div>
+                <!-- Foto 2 -->
+                <div class="group relative h-64 rounded-xl overflow-hidden shadow-md cursor-pointer">
+                    <img src="images/Imagem do WhatsApp de 2025-09-23 à(s) 20.23.15_6ff92965.jpg" alt="Entrega de cestas básicas" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+                        <p class="text-white font-medium">Entrega das Cestas</p>
+                    </div>
+                </div>
+                <!-- Foto 3 -->
+                <div class="group relative h-64 rounded-xl overflow-hidden shadow-md cursor-pointer">
+                    <img src="images/Captura de tela_22-11-2025_9149_www.instagram.com.jpeg" alt="Divulgação do projeto" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+                        <p class="text-white font-medium">Nossa Missão</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Doação (COMO DOAR) -->
+    <section id="doar" class="py-24 bg-verde-50 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            
+            <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border-t-8 border-brand-primary">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-2">Como Doar</h2>
+                <p class="text-xl text-gray-600 mb-8">Sua doação alimenta uma família e leva a mensagem de Jesus diretamente para dentro do lar.</p>
+
+                <div class="bg-gray-100 rounded-xl p-6 mb-8 border-2 border-dashed border-gray-300">
+                    <p class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-2">Chave PIX (CNPJ)</p>
+                    
+                    <!-- Campo Pix Interativo -->
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+                        <code id="pixKey" class="bg-white px-6 py-3 rounded-lg text-xl md:text-2xl font-mono font-bold text-brand-dark border border-gray-200 shadow-sm select-all">23.760.946/0001-51</code>
+                        
+                        <button onclick="copyPix()" id="copyButton" class="w-full md:w-auto bg-brand-primary hover:bg-teal-400 text-white font-bold py-3 px-6 rounded-lg shadow-md transition flex items-center justify-center gap-2">
+                            <i class="fa-regular fa-copy"></i> <span id="btnText">Copiar Chave</span>
+                        </button>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-3">Nome: Projeto 3D / Aspham</p>
+                </div>
+                
+                <div class="text-brand-secondary font-medium">
+                     Faça a transferência pelo app do seu banco.
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Sobre e FAQ Combinados -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16">
+            
+            <!-- Sobre o Projeto -->
+            <div>
+                <h3 class="text-2xl font-bold text-brand-dark mb-6 border-l-4 border-brand-primary pl-4">Sobre o Projeto</h3>
+                <p class="text-brand-dark mb-6 text-lg leading-relaxed">
+                    O <strong>Projeto 3D Mínimo 12</strong> é uma iniciativa social e religiosa dedicada a apoiar famílias em situação de vulnerabilidade através da doação de cestas básicas e da mensagem do evangelho.
+                </p>
+                
+                <div class="space-y-4 bg-gray-50 p-6 rounded-xl">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-location-dot text-brand-primary w-6"></i>
+                        <span class="text-gray-700">Base: Porto Velho – RO</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-file-contract text-brand-primary w-6"></i>
+                        <span class="text-gray-700">CNPJ: 23.760.946/0001-51 (3D/Aspham)</span>
+                    </div>
+                    <div class="pt-2">
+                        <a href="https://wa.me/5569992097764" target="_blank" class="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold shadow-md transition transform hover:scale-105">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i>
+                            <span>Chamar no WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ -->
+            <div id="faq">
+                <h3 class="text-2xl font-bold text-brand-dark mb-6 border-l-4 border-brand-primary pl-4">Perguntas Frequentes</h3>
+                <div class="space-y-4">
+                    
+                    <!-- Pergunta 1 -->
+                    <details class="group bg-gray-50 rounded-lg open">
+                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-4 text-brand-dark hover:bg-verde-50 transition">
+                            <span>Para onde vai meu dinheiro?</span>
+                            <span class="transition group-open:rotate-180">
+                                <i class="fa-solid fa-chevron-down text-brand-primary"></i>
+                            </span>
+                        </summary>
+                        <div class="text-gray-600 p-4 pt-0 animate-fadeIn">
+                            Diretamente para comprar alimentos. Nada é usado para logística ou custos extras.
+                        </div>
+                    </details>
+
+                    <!-- Pergunta 2 -->
+                    <details class="group bg-gray-50 rounded-lg">
+                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-4 text-brand-dark hover:bg-verde-50 transition">
+                            <span>Posso ver as entregas?</span>
+                            <span class="transition group-open:rotate-180">
+                                <i class="fa-solid fa-chevron-down text-brand-primary"></i>
+                            </span>
+                        </summary>
+                        <div class="text-gray-600 p-4 pt-0 animate-fadeIn">
+                            Sim. Enviamos fotos e vídeos periodicamente aos apoiadores.
+                        </div>
+                    </details>
+
+                    <!-- Pergunta 3 -->
+                    <details class="group bg-gray-50 rounded-lg">
+                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-4 text-brand-dark hover:bg-verde-50 transition">
+                            <span>Vocês são uma organização religiosa?</span>
+                            <span class="transition group-open:rotate-180">
+                                <i class="fa-solid fa-chevron-down text-brand-primary"></i>
+                            </span>
+                        </summary>
+                        <div class="text-gray-600 p-4 pt-0 animate-fadeIn">
+                            Sim. Ajudamos materialmente e compartilhamos a mensagem de Jesus com cada família.
+                        </div>
+                    </details>
+
+                    <!-- Pergunta 4 -->
+                    <details class="group bg-gray-50 rounded-lg">
+                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-4 text-brand-dark hover:bg-verde-50 transition">
+                            <span>Posso doar mais de uma cesta?</span>
+                            <span class="transition group-open:rotate-180">
+                                <i class="fa-solid fa-chevron-down text-brand-primary"></i>
+                            </span>
+                        </summary>
+                        <div class="text-gray-600 p-4 pt-0 animate-fadeIn">
+                            Sim. Cada múltiplo de <span class="text-brand-accent font-bold">R$ 100</span> equivale a mais uma família atendida.
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Rodapé (Secundário / Dark) -->
+    <footer class="bg-brand-secondary text-white py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="mb-6 flex justify-center items-center gap-2">
+                <i class="fa-solid fa-hands-holding-circle text-2xl text-brand-primary"></i>
+                <span class="text-xl font-bold">Projeto 3D Mínimo 12</span>
+            </div>
+            <p class="text-white/70 mb-8 max-w-md mx-auto">Alimentando famílias e compartilhando esperança em Porto Velho, Rondônia.</p>
+            
+            <div class="flex justify-center gap-6 mb-8">
+                <a href="#" class="text-white/70 hover:text-brand-primary transition"><i class="fa-brands fa-instagram text-2xl"></i></a>
+                <a href="https://wa.me/5569992097764" class="text-white/70 hover:text-brand-primary transition"><i class="fa-brands fa-whatsapp text-2xl"></i></a>
+            </div>
+
+            <div class="text-sm text-white/50">
+                &copy; <script>document.write(new Date().getFullYear())</script> Projeto 3D Mínimo 12. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts de Funcionalidade -->
+    <script>
+        // Função para Copiar o Pix
+        function copyPix() {
+            const pixKey = document.getElementById('pixKey').innerText;
+            const btnText = document.getElementById('btnText');
+            const copyButton = document.getElementById('copyButton');
+            
+            // Método seguro para copiar
+            const textArea = document.createElement("textarea");
+            textArea.value = pixKey;
+            document.body.appendChild(textArea);
+            textArea.select();
+            
+            try {
+                document.execCommand('copy');
+                
+                // Feedback visual
+                btnText.innerText = "Copiado!";
+                copyButton.classList.remove('bg-brand-primary', 'hover:bg-teal-400');
+                copyButton.classList.add('bg-brand-dark', 'hover:bg-gray-900');
+                
+                // Resetar após 3 segundos
+                setTimeout(() => {
+                    btnText.innerText = "Copiar Chave";
+                    copyButton.classList.add('bg-brand-primary', 'hover:bg-teal-400');
+                    copyButton.classList.remove('bg-brand-dark', 'hover:bg-gray-900');
+                }, 3000);
+                
+            } catch (err) {
+                console.error('Erro ao copiar', err);
+                alert('Não foi possível copiar automaticamente. Por favor, selecione e copie manualmente.');
+            }
+            
+            document.body.removeChild(textArea);
+        }
+
+        // Toggle Menu Mobile
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Mudar cor da navbar ao rolar
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+                navbar.classList.add('bg-white/95');
+            } else {
+                // navbar.classList.remove('shadow-lg'); // Mantendo a sombra sempre para melhor visibilidade
+            }
+        });
+    </script>
+</body>
 </html>
